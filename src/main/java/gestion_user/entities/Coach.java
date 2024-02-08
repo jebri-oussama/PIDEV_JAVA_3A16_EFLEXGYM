@@ -3,9 +3,7 @@ package gestion_user.entities;
 import java.util.Date;
 import java.util.Objects;
 
-public class Adherent extends User{
-
-
+public class Coach extends User{
     private static int id;
     private String nom;
     private String prenom;
@@ -14,7 +12,7 @@ public class Adherent extends User{
     private Date date_de_naissance;
     private sexe sexe;
 
-    public Adherent(String nom, String prenom, String mot_de_passe, String email, Date date_de_naissance) {
+    public Coach(String nom, String prenom, String mot_de_passe, String email, Date date_de_naissance) {
         this.nom = nom;
         this.prenom = prenom;
         this.mot_de_passe = mot_de_passe;
@@ -27,7 +25,7 @@ public class Adherent extends User{
     }
 
     public static void setId(int id) {
-        Adherent.id = id;
+        Coach.id = id;
     }
 
     public String getNom() {
@@ -82,8 +80,8 @@ public class Adherent extends User{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Adherent adherent = (Adherent) o;
-        return Objects.equals(nom, adherent.nom) && Objects.equals(prenom, adherent.prenom) && Objects.equals(mot_de_passe, adherent.mot_de_passe) && Objects.equals(email, adherent.email) && Objects.equals(date_de_naissance, adherent.date_de_naissance) && sexe == adherent.sexe;
+        Coach coach = (Coach) o;
+        return Objects.equals(nom, coach.nom) && Objects.equals(prenom, coach.prenom) && Objects.equals(mot_de_passe, coach.mot_de_passe) && Objects.equals(email, coach.email) && Objects.equals(date_de_naissance, coach.date_de_naissance) && sexe == coach.sexe;
     }
 
     @Override
@@ -93,7 +91,7 @@ public class Adherent extends User{
 
     @Override
     public String toString() {
-        return "Adherent{" +
+        return "Coach{" +
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", mot_de_passe='" + mot_de_passe + '\'' +
