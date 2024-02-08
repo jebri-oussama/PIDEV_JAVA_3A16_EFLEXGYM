@@ -6,7 +6,7 @@ import java.sql.Date;
 
 public class Abonnement  {
 
-    private static int id;
+    private int id;
     private Type type;
     private double prix;
     private Date date_debut;
@@ -43,12 +43,12 @@ public class Abonnement  {
         this.id_adherent = id_adherent;
     }
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        Abonnement.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Type getType() {
