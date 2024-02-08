@@ -2,7 +2,7 @@ package gestion_finance.entities;
 
 
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Abonnement  {
 
@@ -12,13 +12,35 @@ public class Abonnement  {
     private Date date_debut;
     private Date date_fin;
     private Etat etat;
+    private int id_adherent;
+    private int id_bilan_financier;
 
-    public Abonnement(Type type, double prix, Date date_debut, Date date_fin, Etat etat) {
+    public Abonnement(int id , Type type, double prix, Date date_debut, Date date_fin, Etat etat , int id_adherent ,int id_bilan_financier) {
         this.type = type;
         this.prix = prix;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
         this.etat = etat;
+        this.id_adherent = id_adherent;
+        this.id_bilan_financier = id_bilan_financier;
+        this.id=id;
+
+    }
+
+    public int getId_bilan_financier() {
+        return id_bilan_financier;
+    }
+
+    public void setId_bilan_financier(int id_bilan_financier) {
+        this.id_bilan_financier = id_bilan_financier;
+    }
+
+    public int getId_adherent() {
+        return id_adherent;
+    }
+
+    public void setId_adherent(int id_adherent) {
+        this.id_adherent = id_adherent;
     }
 
     public static int getId() {
@@ -45,7 +67,7 @@ public class Abonnement  {
         this.prix = prix;
     }
 
-    public Date getDate_debut() {
+    public java.sql.Date getDate_debut() {
         return date_debut;
     }
 
@@ -53,7 +75,7 @@ public class Abonnement  {
         this.date_debut = date_debut;
     }
 
-    public Date getDate_fin() {
+    public java.sql.Date getDate_fin() {
         return date_fin;
     }
 
