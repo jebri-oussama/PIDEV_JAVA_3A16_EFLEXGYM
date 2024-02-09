@@ -34,9 +34,28 @@ public class CoursService implements IntService<cours> {
 
     }
     public void delete(cours c) {
+        String requete = "DELETE FROM cours WHERE id = ?";
+        try{
+            pst = conn.prepareStatement(requete);
+            pst.setInt(1 ,c.getId() );
+            pst.executeUpdate();
+        } catch(SQLException e){
+            throw new RuntimeException(e);
+        }
 
     }
     public void update(cours c) {
+        String requete = "UPDATE cours SET nom = ?, typre = ?, duree= ? WHERE id =?";
+        try{
+            pst = conn.prepareStatement(requete);
+            pst.setString(1, c.getNom());
+            pst.setString(2, c.getType().toString());
+            pst.setInt(3,c.getDuree());
+            pst.executeUpdate();
+
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
 
     }
     public List<cours> readAll() {
