@@ -64,7 +64,11 @@ public class Abonnement  {
     }
 
     public void setPrix(double prix) {
-        this.prix = prix;
+        if (this.type.equals(Type.mensuel))
+            this.prix = 100;
+        else prix=1200;
+
+
     }
 
     public java.sql.Date getDate_debut() {

@@ -30,7 +30,7 @@ public class AbonnementService implements IService<Abonnement> {
             pst.setDouble(3,a.getPrix());
             pst.setDate(4, a.getDate_debut());
             pst.setDate(5, a.getDate_fin());
-            pst.setObject(6, a.getEtat().toString());
+            pst.setString(6, a.getEtat().toString());
             pst.setInt(7, a.getId_adherent());
             pst.setInt(8, a.getId_bilan_financier());
             pst.executeUpdate();
