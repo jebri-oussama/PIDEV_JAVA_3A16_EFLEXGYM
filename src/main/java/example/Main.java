@@ -4,7 +4,7 @@ import gestion_finance.entities.Abonnement;
 import gestion_finance.entities.Etat;
 import gestion_finance.entities.Type;
 import gestion_finance.service.AbonnementService;
-import utils.DataSource;
+//import utils.DataSource;
 
 import java.sql.Date;
 
@@ -32,9 +32,9 @@ public class Main {
                 2,1
         );
 
-        /*as.add(abonnement1);
-        as.add(abonnement2);*/
-        as.delete(abonnement1);
+        /*as.add(abonnement1);*/
+        as.add(abonnement2);
+        //as.delete(abonnement1);
         as.readAll().forEach(System.out::println);
         //System.out.println("L'abonnement a été ajouté avec succès !");
 
