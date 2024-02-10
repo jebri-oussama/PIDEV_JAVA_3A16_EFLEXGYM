@@ -1,6 +1,7 @@
-package gestion_evenement.service;
+package gestion_reclamation.service;
 
-import gestion_evenement.entities.Evenement;
+
+import gestion_reclamation.entities.Reclamation;
 import utils.DataSource;
 
 import java.sql.Connection;
@@ -10,24 +11,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EvenementService implements IService<Evenement> {
+public class ReclamationService implements IService<Reclamation> {
 
     private Connection conn;
     private PreparedStatement pst;
 
-    public EvenementService() {
+    public ReclamationService() {
         conn = DataSource.getInstance().getCnx();
     }
 
     @Override
-    public void add(Evenement e) {
-        String query = "INSERT INTO Evenement (type, date_debut, date_fin, duree) VALUES (?, ?, ?, ?)";
+    public void add(Reclamation r) {
+        String query = "INSERT INTO Reclamation (type, description, status, id_adherent) VALUES (?, ?, ?, ?)";
         try {
             pst = conn.prepareStatement(query);
-            pst.setString(1, e.getType());
-            pst.setTimestamp(2, new java.sql.Timestamp(e.getDate_debut().getTime()));
-            pst.setTimestamp(3, new java.sql.Timestamp(e.getDate_fin().getTime()));
-            pst.setString(4, e.getDuree());
+            pst.setString(1, r.getType());
+            pst.setString(2, r.getDescription());
+            pst.setString(3, r.getStatus().name());
+            pst.setInt(4, r.getId_adherent());
             pst.executeUpdate();
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
@@ -36,7 +37,7 @@ public class EvenementService implements IService<Evenement> {
 
     @Override
     public void delete(int id) {
-        String query = "DELETE FROM Evenement WHERE id = ?";
+        String query = "DELETE FROM Reclamation WHERE id = ?";
         try {
             pst = conn.prepareStatement(query);
             pst.setInt(1, id);
@@ -48,15 +49,15 @@ public class EvenementService implements IService<Evenement> {
 
 
     @Override
-    public void update(Evenement evenement) {
-        String query = "UPDATE Evenement SET type = ?, date_debut = ?, date_fin = ?, duree = ? WHERE id = ?";
+    public void update(Reclamation reclamation) {
+        String query = "UPDATE Reclamation SET type = ?, description = ?, status = ?, id_adherent = ? WHERE id = ?";
         try {
             pst = conn.prepareStatement(query);
-            pst.setString(1, evenement.getType());
-            pst.setTimestamp(2, new java.sql.Timestamp(evenement.getDate_debut().getTime()));
-            pst.setTimestamp(3, new java.sql.Timestamp(evenement.getDate_fin().getTime()));
-            pst.setString(4, evenement.getDuree());
-            pst.setInt(5, evenement.getId());
+            pst.setString(1, reclamation.getType());
+            pst.setString(2, reclamation.getDescription());
+            pst.setString(3, reclamation.getStatus().name());
+            pst.setInt(4, reclamation.getId_adherent());
+            pst.setInt(5, reclamation.getId());
             pst.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -64,19 +65,19 @@ public class EvenementService implements IService<Evenement> {
     }
 
     @Override
-    public List<Evenement> readAll() {
-        String query = "SELECT * FROM Evenement";
-        List<Evenement> list = new ArrayList<>();
+    public List<Reclamation> readAll() {
+        String query = "SELECT * FROM Reclamation";
+        List<Reclamation> list = new ArrayList<>();
         try {
             pst = conn.prepareStatement(query);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new Evenement(
+                list.add(new Reclamation(
                         rs.getInt("id"),
                         rs.getString("type"),
-                        rs.getTimestamp("date_debut"),
-                        rs.getTimestamp("date_fin"),
-                        rs.getString("duree")
+                        rs.getString("description"),
+                        Reclamation.Status.valueOf(rs.getString("status")),
+                        rs.getInt("id_adherent")
                 ));
             }
         } catch (SQLException e) {
@@ -85,20 +86,21 @@ public class EvenementService implements IService<Evenement> {
         return list;
     }
 
+
     @Override
-    public Evenement readById(int id) {
-        String query = "SELECT * FROM Evenement WHERE id = ?";
+    public Reclamation readById(int id) {
+        String query = "SELECT * FROM Reclamation WHERE id = ?";
         try {
             pst = conn.prepareStatement(query);
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                return new Evenement(
+                return new Reclamation(
                         rs.getInt("id"),
                         rs.getString("type"),
-                        rs.getTimestamp("date_debut"),
-                        rs.getTimestamp("date_fin"),
-                        rs.getString("duree")
+                        rs.getString("description"),
+                        Reclamation.Status.valueOf(rs.getString("status")),
+                        rs.getInt("id_adherent")
                 );
             }
         } catch (SQLException e) {

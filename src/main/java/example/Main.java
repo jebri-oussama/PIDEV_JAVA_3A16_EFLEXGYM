@@ -7,18 +7,51 @@ import gestion_user.entities.Coach;
 import gestion_user.entities.Sexe;
 import gestion_user.service.CoachService;
 import utils.DataSource;
+import gestion_reclamation.entities.Reclamation;
+import gestion_reclamation.service.ReclamationService;
 
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
-
+import java.util.List;
 import static gestion_user.entities.Sexe.male;
 
 public class Main {
     public static void main(String[] args) {
 
 
-       /* //READ BY ID
+       ReclamationService R = new ReclamationService();
+       /*
+        Reclamation r1 = new Reclamation(3,
+                "ppp", "aaa", Reclamation.Status.pending,2
+        );*/
+        // R.add(r1);
+        // R.update(r1);
+        //R.readAll().forEach(System.out::println);
+
+        //dynamic delete
+         /* int reclamationIdToDelete =5 ;
+        R.delete(reclamationIdToDelete);
+        System.out.println("Reclamation with ID " + reclamationIdToDelete + " deleted successfully.");
+        */
+
+        /*
+        // ID of the Reclamation you want to retrieve
+        int eventIdToRetrieve = 1; // Change this to the desired ID
+
+        // Retrieve the Reclamation by ID and print it
+        Reclamation retrievedReclamation = R.readById(eventIdToRetrieve);
+        if (retrievedReclamation != null) {
+            System.out.println("Retrieved Reclamation: " + retrievedReclamation);
+        } else {
+            System.out.println("No Reclamation found with ID: " + eventIdToRetrieve);
+        }
+
+*/
+
+
+
+        /*//READ BY ID
         EvenementService evenementService = new EvenementService();
         // ID of the Evenement you want to retrieve
         int eventIdToRetrieve = 6; // Change this to the desired ID
@@ -30,16 +63,23 @@ public class Main {
         } else {
             System.out.println("No Evenement found with ID: " + eventIdToRetrieve);
         }
-
-       EvenementService E= new EvenementService();
-        Evenement e1 = new Evenement(1,
+*/
+       //EvenementService E= new EvenementService();
+        /*Evenement e1 = new Evenement(1,
                 "rr", Timestamp.valueOf("2024-03-09 12:30:00"), Timestamp.valueOf("2024-02-09 14:00:00"),"20"
-        );
+        );*/
+
+        //dynamic delete
+        // ID of the Evenement you want to delete
+        /*int eventIdToDelete = 5; // Change this to the desired ID
+        E.delete(eventIdToDelete);
+        System.out.println("Evenement with ID " + eventIdToDelete + " deleted successfully.");*/
+
         //E.add(e1);
         // E.update(e1);
-        // E.delete(e1);
+
         //E.readAll().forEach(System.out::println);
-        */
+
 
 
 

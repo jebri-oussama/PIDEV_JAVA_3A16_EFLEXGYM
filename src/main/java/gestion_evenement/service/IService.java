@@ -6,7 +6,7 @@ public interface IService<E> {
 
     void add(E t);
 
-    void delete(E t);
+    void delete(int id);
 
     void update(E t);
 
