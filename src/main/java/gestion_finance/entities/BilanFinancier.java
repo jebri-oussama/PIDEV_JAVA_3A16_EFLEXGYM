@@ -48,7 +48,7 @@ public class BilanFinancier {
 
     private double recupererPrixProduits() {
         double prixTotalProduits = 0;
-        String requete = "SELECT SUM(quantite * prix) AS revenus_produits FROM VenteProduit WHERE id_bilan_financier = ?";
+        String requete = "SELECT SUM(quantite * prix) AS revenus_produits FROM Produit WHERE id_bilan_financier = ?";
         try {
             pst = conn.prepareStatement(requete);
             pst.setInt(1, getId());
