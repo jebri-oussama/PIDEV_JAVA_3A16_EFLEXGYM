@@ -1,25 +1,43 @@
 package gestion_user.entities;
 
-import java.util.Date;
-import java.util.Objects;
+import java.sql.Date;
 
 public class Coach extends User{
     private static int id;
+    private int id_bilan_financier;
     private String nom;
     private String prenom;
     private String mot_de_passe;
     private String email;
     private Date date_de_naissance;
-    private sexe sexe;
+    private Sexe sexe;
+    private double salaire;
 
-    public Coach(String nom, String prenom, String mot_de_passe, String email, Date date_de_naissance) {
+
+    public Coach(int anInt, String nom, String prenom, String mot_de_passe, String email, Date date_de_naissance, Sexe sexe, double salaire, int id_bilan_financier) {
         this.nom = nom;
         this.prenom = prenom;
         this.mot_de_passe = mot_de_passe;
         this.email = email;
         this.date_de_naissance = date_de_naissance;
+        this.sexe = sexe;
+        this.salaire = salaire;
+        this.id_bilan_financier=id_bilan_financier;
+
     }
 
+    public Coach(String nom, String prenom, String mot_de_passe, String email, Date date_de_naissance, Sexe sexe, double salaire, int id_bilan_financier) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mot_de_passe = mot_de_passe;
+        this.email = email;
+        this.date_de_naissance = date_de_naissance;
+        this.sexe = sexe;
+        this.salaire = salaire;
+        this.id_bilan_financier=id_bilan_financier;
+
+
+    }
     public static int getId() {
         return id;
     }
@@ -60,7 +78,7 @@ public class Coach extends User{
         this.email = email;
     }
 
-    public Date getDate_de_naissance() {
+    public java.sql.Date getDate_de_naissance() {
         return date_de_naissance;
     }
 
@@ -68,25 +86,28 @@ public class Coach extends User{
         this.date_de_naissance = date_de_naissance;
     }
 
-    public gestion_user.entities.sexe getSexe() {
+    public Sexe getSexe() {
         return sexe;
     }
 
-    public void setSexe(gestion_user.entities.sexe sexe) {
+    public void setSexe(Sexe sexe) {
         this.sexe = sexe;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Coach coach = (Coach) o;
-        return Objects.equals(nom, coach.nom) && Objects.equals(prenom, coach.prenom) && Objects.equals(mot_de_passe, coach.mot_de_passe) && Objects.equals(email, coach.email) && Objects.equals(date_de_naissance, coach.date_de_naissance) && sexe == coach.sexe;
+    public double getSalaire() {
+        return salaire;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(nom, prenom, mot_de_passe, email, date_de_naissance, sexe);
+    public void setSalaire(double salaire) {
+        this.salaire = salaire;
+    }
+
+    public int getId_bilan_financier() {
+        return id_bilan_financier;
+    }
+
+    public void setId_bilan_financier(int id_bilan_financier) {
+        this.id_bilan_financier = id_bilan_financier;
     }
 
     @Override
@@ -98,6 +119,8 @@ public class Coach extends User{
                 ", email='" + email + '\'' +
                 ", date_de_naissance=" + date_de_naissance +
                 ", sexe=" + sexe +
+                ", salaire=" + salaire +
+                ", id_bilan_financier=" + id_bilan_financier +
                 '}';
     }
 }
