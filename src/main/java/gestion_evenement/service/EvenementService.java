@@ -45,7 +45,7 @@ public class EvenementService implements IService<Evenement> {
             throw new RuntimeException(e);
         }
     }
-
+//
 
     @Override
     public void update(Evenement evenement) {

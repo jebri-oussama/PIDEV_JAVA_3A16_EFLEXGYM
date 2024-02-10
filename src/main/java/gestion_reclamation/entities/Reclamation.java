@@ -66,7 +66,7 @@ public class Reclamation {
                 ", id_adherent=" + id_adherent +
                 '}';
     }
-
+//
     // Enumeration for status
     public enum Status {
         resolved,

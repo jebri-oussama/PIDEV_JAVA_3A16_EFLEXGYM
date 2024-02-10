@@ -14,7 +14,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
-import static gestion_user.entities.Sexe.male;
+import static gestion_user.entities.Sexe.homme;
 
 public class Main {
     public static void main(String[] args) {
