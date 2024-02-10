@@ -36,6 +36,7 @@ public class Coach extends User{
         this.salaire = salaire;
         this.id_bilan_financier=id_bilan_financier;
 
+
     }
     public static int getId() {
         return id;

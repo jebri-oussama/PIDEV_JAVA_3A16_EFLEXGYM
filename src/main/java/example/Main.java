@@ -17,10 +17,11 @@ public class Main {
         System.out.println(ds1);
 
         CoachService cs = new CoachService();
-       Coach coach1 = new Coach("mamoud","mamoud","1234","mahmoud@123",  Date.valueOf("2024-02-09"), male,3000,1);
-       // Coach coach2 = new Coach(5,"ali","ali","1234","ali@123",  Date.valueOf("2024-02-09"), male,3000,1);
+       //Coach coach1 = new Coach("mamoud","mamoud","1234","mahmoud@123", Date.valueOf("2024-02-10"), male,3000,1);
+        //Coach coach2 = new Coach(5,"ali","ali","1234","ali@123",  Date.valueOf("2024-02-09"), male,3000,1);
+       // System.out.println(cs.readAll());
+        cs.delete(3);
         System.out.println(cs.readAll());
-        cs.update(4,coach1);
        // cs.add(coach1);
         // cs.add(coach2);
         //cs.delete(5);
