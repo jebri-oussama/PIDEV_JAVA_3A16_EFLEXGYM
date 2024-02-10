@@ -1,21 +1,32 @@
 package example;
 
-import gestion_finance.entities.Abonnement;
-import gestion_finance.entities.Etat;
-import gestion_finance.entities.Type;
-import gestion_finance.service.AbonnementService;
-import gestion_planing.entities.planning;
 import gestion_planing.service.PlanningService;
+import gestion_user.entities.Coach;
+import gestion_user.entities.Sexe;
+import gestion_user.service.CoachService;
 import utils.DataSource;
 
 import java.sql.Date;
-import java.sql.Time;
 
-import static gestion_finance.entities.Etat.*;
-import static gestion_finance.entities.Type.*;
+import static gestion_user.entities.Sexe.male;
 
 public class Main {
     public static void main(String[] args) {
+
+        DataSource ds1 = DataSource.getInstance();
+        System.out.println(ds1);
+
+        CoachService cs = new CoachService();
+       Coach coach1 = new Coach("mamoud","mamoud","1234","mahmoud@123",  Date.valueOf("2024-02-09"), male,3000,1);
+       // Coach coach2 = new Coach(5,"ali","ali","1234","ali@123",  Date.valueOf("2024-02-09"), male,3000,1);
+        System.out.println(cs.readAll());
+        cs.update(4,coach1);
+       // cs.add(coach1);
+        // cs.add(coach2);
+        //cs.delete(5);
+//System.out.println(cs.readAll());
+
+
 
        /* DataSource ds1 = DataSource.getInstance();
         System.out.println(ds1);*/
@@ -49,7 +60,7 @@ public class Main {
         System.out.println("Planning supprimé avec succès !");*/
 
         // Créer un objet planning pour tester l'update
-        PlanningService PS = new PlanningService();
+    /*    PlanningService PS = new PlanningService();
         planning p = new planning(
                 1, "s2" ,
                 Date.valueOf("2024-02-10"),
@@ -58,7 +69,7 @@ public class Main {
                 1
         );
         PS.update(p);
-        System.out.println("Planning mis à jour avec succès !");
+        System.out.println("Planning mis à jour avec succès !");*/
 
 
 
