@@ -54,7 +54,7 @@ public class Evenement {
     public void setDuree(String duree) {
         this.duree = duree;
     }
-//
+
     @Override
     public String toString() {
         return "Evenement{" +

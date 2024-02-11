@@ -1,16 +1,13 @@
 package gestion_planing.service;
 
 
-import gestion_evenement.entities.Evenement;
-import gestion_finance.entities.Abonnement;
-import gestion_finance.entities.Etat;
-import gestion_finance.entities.Type;
-import gestion_planing.entities.TypeCours;
 import gestion_planing.entities.cours;
 import utils.DataSource;
 
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 public class CoursService implements IntService<cours> {
@@ -48,55 +45,26 @@ public class CoursService implements IntService<cours> {
 
     }
     public void update(cours c) {
-        String requete = "UPDATE cours SET nom = ?, type = ?, duree = ? WHERE id = ?";
-        try {
-            pst = conn.prepareStatement(requete);
-            pst.setString(1, c.getNom());
-            pst.setString(2, c.getType().toString()); // Assuming getType() returns a String representation of the enum
-            pst.setInt(3, c.getDuree());
-            pst.setInt(4, c.getId()); // Assuming getId() returns the ID of the course
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public List<cours> readAll() {
-        String query = "SELECT * FROM cours";
-        List<cours> list = new ArrayList<>();
-        try {
-            ste = conn.createStatement();
-            ResultSet rs = ste.executeQuery(query);
-            while (rs.next()) {
-                TypeCours type = TypeCours.valueOf(rs.getString(3));
-                list.add(new cours(rs.getInt(1), rs.getString(2), type, rs.getInt(4)));
-            }
-        }catch(SQLException e){
-            throw new RuntimeException(e);
-
-
-        }
-
-
-        return list;
-    }
-
-    public cours readById(int id) {
-        String requete = "SELECT * FROM cours WHERE id = ?";
+        String requete = "UPDATE cours SET nom = ?, typre = ?, duree= ? WHERE id =?";
         try{
             pst = conn.prepareStatement(requete);
-            pst.setInt(1, id);
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()){
-                TypeCours type = TypeCours.valueOf(rs.getString(3));
-                return new cours(rs.getInt(rs.getInt(1)), rs.getString(2), type, rs.getInt(4));
-            }
-        } catch (SQLException e) {
+            pst.setString(1, c.getNom());
+            pst.setString(2, c.getType().toString());
+            pst.setInt(3,c.getDuree());
+            pst.executeUpdate();
+
+        }catch(SQLException e){
             throw new RuntimeException(e);
         }
+
+    }
+    public List<cours> readAll() {
         return null;
     }
 
-
+    @Override
+    public cours readById(int id) {
+        return null;
+    }
 
 }

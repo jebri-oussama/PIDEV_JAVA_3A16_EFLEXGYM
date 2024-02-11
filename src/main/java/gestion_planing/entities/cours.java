@@ -1,14 +1,12 @@
 package gestion_planing.entities;
 
-import gestion_finance.entities.Type;
-
 public class cours {
     private int id;
     private String nom;
     private TypeCours type; // Variable de type enum pour le type de cours
     private int duree;
 
-    public cours(int id, String nom, Type type, int duree) {
+    public cours() {
     }
 
     public cours(int id, String nom, TypeCours type, int duree) {

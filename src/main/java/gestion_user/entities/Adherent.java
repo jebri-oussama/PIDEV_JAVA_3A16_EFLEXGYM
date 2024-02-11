@@ -14,14 +14,22 @@ public class Adherent extends User{
     private Date date_de_naissance;
     private Sexe sexe;
 
-    public Adherent(String nom, String prenom, String mot_de_passe, String email, Date date_de_naissance) {
+    public Adherent(int anInt, String nom, String prenom, String mot_de_passe, String email, Date date_de_naissance, Sexe sexe) {
         this.nom = nom;
         this.prenom = prenom;
         this.mot_de_passe = mot_de_passe;
         this.email = email;
         this.date_de_naissance = date_de_naissance;
+        this.sexe = sexe;
     }
-
+    public Adherent(String nom, String prenom, String mot_de_passe, String email, Date date_de_naissance, Sexe sexe) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mot_de_passe = mot_de_passe;
+        this.email = email;
+        this.date_de_naissance = date_de_naissance;
+        this.sexe = sexe;
+    }
     public static int getId() {
         return id;
     }
@@ -62,8 +70,8 @@ public class Adherent extends User{
         this.email = email;
     }
 
-    public Date getDate_de_naissance() {
-        return date_de_naissance;
+    public java.sql.Date getDate_de_naissance() {
+        return (java.sql.Date) date_de_naissance;
     }
 
     public void setDate_de_naissance(Date date_de_naissance) {
@@ -84,11 +92,6 @@ public class Adherent extends User{
         if (o == null || getClass() != o.getClass()) return false;
         Adherent adherent = (Adherent) o;
         return Objects.equals(nom, adherent.nom) && Objects.equals(prenom, adherent.prenom) && Objects.equals(mot_de_passe, adherent.mot_de_passe) && Objects.equals(email, adherent.email) && Objects.equals(date_de_naissance, adherent.date_de_naissance) && sexe == adherent.sexe;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nom, prenom, mot_de_passe, email, date_de_naissance, sexe);
     }
 
     @Override

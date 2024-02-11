@@ -9,7 +9,7 @@ public class produit {
   private  String description;
     private int id_bilan_financier;
    private int id_admin;
-
+//
 
 
 

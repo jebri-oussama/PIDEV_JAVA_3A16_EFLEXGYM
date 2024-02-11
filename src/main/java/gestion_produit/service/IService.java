@@ -8,7 +8,7 @@ public interface IService<T> {
     void delete(int id);
 
     void update( int id , T t);
-
+//
     List<T> readAll();
 
     T readById(int id);
