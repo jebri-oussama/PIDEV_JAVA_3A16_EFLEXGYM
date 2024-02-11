@@ -51,7 +51,7 @@ public class Main {
         // Créer un objet planning pour tester l'update
         PlanningService PS = new PlanningService();
         planning p = new planning(
-                1, "s2" ,
+                1, "s2" ,4,
                 Date.valueOf("2024-02-10"),
                 Time.valueOf("14:00:00") ,
                1,
