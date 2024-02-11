@@ -1,14 +1,14 @@
 package gestion_produit.entities;
 
 public class produit {
-    int id;
-    String nom;
-    String image;
-    float prix;
-    int quantite;
-    String description;
-    int id_bilan_financier;
-    int id_admin;
+    private int id;
+   private String nom;
+   private String image;
+    private float prix;
+    private int quantite;
+  private  String description;
+    private int id_bilan_financier;
+   private int id_admin;
 
 
 
