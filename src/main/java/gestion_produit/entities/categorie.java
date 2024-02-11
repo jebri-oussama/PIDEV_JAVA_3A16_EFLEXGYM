@@ -43,7 +43,7 @@ public class categorie {
     }
 
     public void setId_produit(int id_produit) {
-        this.id_produit = id_produit;
+        this.id_produit = id_produit;//
     }
 
     @Override

@@ -90,8 +90,11 @@ public class categorieService implements IService<categorie>{
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
             if (rs.next()){
+                System.out.println("Retrieved ID: " + rs.getInt(1));
+                System.out.println("Retrieved Name: " + rs.getString(2));
+                //
                 type Type = type.valueOf(rs.getString(2));
-                return new categorie(rs.getInt(1), Type, rs.getString(3), rs.getInt(4));
+                return new categorie(rs.getInt("id"), Type, rs.getString("description"), rs.getInt("id_produit"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

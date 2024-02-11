@@ -6,7 +6,6 @@ import java.util.Date;
 public class planning {
     private int id;
     private String salle;
-    private int nb_place_max;
     private Date date;
     private Time heure;
     private int id_cour;
@@ -15,10 +14,9 @@ public class planning {
     public planning() {
     }
 
-    public planning(int id, String salle, int nb_place_max, Date date, Time heure, int id_cour, int id_coach) {
+    public planning(int id, String salle, Date date, Time heure, int id_cour, int id_coach) {
         this.id = id;
         this.salle = salle;
-        this.nb_place_max = nb_place_max;
         this.date = date;
         this.heure = heure;
         this.id_cour = id_cour;
@@ -76,22 +74,13 @@ public class planning {
         this.heure = heure;
     }
 
-    public int getNb_place_max() {
-        return nb_place_max;
-    }
-
-    public void setNb_place_max(int nb_place_max) {
-        this.nb_place_max = nb_place_max;
-    }
-
     @Override
     public String toString() {
-        return "planning{" +
+        return "planing{" +
                 "id=" + id +
                 ", salle='" + salle + '\'' +
-                ", nb_place_max=" + nb_place_max +
                 ", date=" + date +
-                ", heure=" + heure +
+                ", heure='" + heure + '\'' +
                 ", id_cour=" + id_cour +
                 ", id_coach=" + id_coach +
                 '}';
