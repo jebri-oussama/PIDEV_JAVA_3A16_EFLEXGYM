@@ -179,7 +179,7 @@ p1.setDescription("ok");
                 Time.valueOf("14:00:00") ,
                1,
                 1
-        );
+        );*/
         //PS.update(p);
         //System.out.println("Planning mis à jour avec succès !");
         //PS.readAll().forEach(System.out::println);
