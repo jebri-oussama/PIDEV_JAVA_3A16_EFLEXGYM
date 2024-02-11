@@ -1,6 +1,6 @@
 package gestion_user.entities;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.Objects;
 
 public class Adherent extends User{
@@ -14,13 +14,15 @@ public class Adherent extends User{
     private Date date_de_naissance;
     private Sexe sexe;
 
-    public Adherent(String nom, String prenom, String mot_de_passe, String email, Date date_de_naissance) {
+    public Adherent(int anInt, String nom, String prenom, String mot_de_passe, String email, Date date_de_naissance, Sexe sexe) {
         this.nom = nom;
         this.prenom = prenom;
         this.mot_de_passe = mot_de_passe;
         this.email = email;
         this.date_de_naissance = date_de_naissance;
+        this.sexe=sexe;
     }
+
 
     public static int getId() {
         return id;

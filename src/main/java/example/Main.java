@@ -1,14 +1,8 @@
 package example;
 
 import gestion_planing.service.PlanningService;
-import gestion_user.entities.Coach;
-import gestion_user.entities.Sexe;
 import gestion_user.service.CoachService;
 import utils.DataSource;
-
-import java.sql.Date;
-
-import static gestion_user.entities.Sexe.male;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,7 +1,6 @@
 package gestion_user.service;
 
 
-import gestion_user.service.IService;
 import gestion_user.entities.Coach;
 import gestion_user.entities.Sexe;
 import utils.DataSource;
@@ -101,8 +100,8 @@ public class CoachService implements IService<Coach> {
         } return list;
     }
 
-        @Override
-        public Coach readById ( int id){
+    @Override
+        public Coach readById (int id){
             String requete = "SELECT * FROM Coach WHERE id = ?";
             Coach coach = null;
             try (PreparedStatement pst = conn.prepareStatement(requete)) {
