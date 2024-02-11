@@ -7,6 +7,7 @@ import utils.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Date;
 
 public class AdherentService implements IService<Adherent> {
 
