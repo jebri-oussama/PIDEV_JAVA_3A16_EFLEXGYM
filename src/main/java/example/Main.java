@@ -19,7 +19,8 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
-import static gestion_user.entities.Sexe.homme;
+import static gestion_user.entities.Sexe.male;
+import static gestion_user.entities.Sexe.femelle;
 import gestion_produit.entities.produit;
 import gestion_produit.service.produitService;
 

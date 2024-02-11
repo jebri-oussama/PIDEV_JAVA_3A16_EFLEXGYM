@@ -1,7 +1,6 @@
 package gestion_user.service;
 
 import gestion_user.entities.Adherent;
-import gestion_user.entities.Coach;
 import gestion_user.entities.Sexe;
 import utils.DataSource;
 
