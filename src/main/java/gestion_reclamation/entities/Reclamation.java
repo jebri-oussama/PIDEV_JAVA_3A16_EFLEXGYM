@@ -70,6 +70,6 @@ public class Reclamation {
     // Enumeration for status
     public enum Status {
         resolved,
-        pending
+     pending
     }
 }

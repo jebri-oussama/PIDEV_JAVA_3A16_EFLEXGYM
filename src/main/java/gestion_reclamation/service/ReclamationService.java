@@ -50,19 +50,27 @@ public class ReclamationService implements IService<Reclamation> {
 
     @Override
     public void update(Reclamation reclamation) {
-        String query = "UPDATE Reclamation SET type = ?, description = ?, status = ?, id_adherent = ? WHERE id = ?";
-        try {
-            pst = conn.prepareStatement(query);
-            pst.setString(1, reclamation.getType());
-            pst.setString(2, reclamation.getDescription());
-            pst.setString(3, reclamation.getStatus().name());
-            pst.setInt(4, reclamation.getId_adherent());
-            pst.setInt(5, reclamation.getId());
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        // First, check if the ID exists in the database
+        if (readById(reclamation.getId()) != null) {
+            // Proceed with the update operation
+            String query = "UPDATE Reclamation SET type = ?, description = ?, status = ?, id_adherent = ? WHERE id = ?";
+            try {
+                pst = conn.prepareStatement(query);
+                pst.setString(1, reclamation.getType());
+                pst.setString(2, reclamation.getDescription());
+                pst.setString(3, reclamation.getStatus().name());
+                pst.setInt(4, reclamation.getId_adherent());
+                pst.setInt(5, reclamation.getId());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            // Handle the case where the ID does not exist in the database
+            System.out.println("Error: The reclamation with ID " + reclamation.getId() + " does not exist in the database.");
         }
     }
+
 
     @Override
     public List<Reclamation> readAll() {
@@ -108,5 +116,29 @@ public class ReclamationService implements IService<Reclamation> {
         }
         return null;
     }
+    public List<Reclamation> getReclamationsByStatusAndType(Reclamation.Status status, String type) {
+        String query = "SELECT * FROM Reclamation WHERE status = ? AND type = ?";
+        List<Reclamation> reclamations = new ArrayList<>();
+        try {
+            pst = conn.prepareStatement(query);
+            pst.setString(1, status.name());
+            pst.setString(2, type);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Reclamation reclamation = new Reclamation(
+                        rs.getInt("id"),
+                        rs.getString("type"),
+                        rs.getString("description"),
+                        Reclamation.Status.valueOf(rs.getString("status")),
+                        rs.getInt("id_adherent")
+                );
+                reclamations.add(reclamation);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return reclamations;
+    }
+
 
 }

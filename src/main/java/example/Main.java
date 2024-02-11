@@ -60,24 +60,27 @@ p1.setDescription("ok");
      //   ps.readById(5);
 
 
-      //  ReclamationService R = new ReclamationService();
-       /*
-        Reclamation r1 = new Reclamation(3,
-                "ppp", "aaa", Reclamation.Status.pending,2
+       ReclamationService R = new ReclamationService();
+        List<Reclamation> filteredReclamations = R.getReclamationsByStatusAndType(Reclamation.Status.pending, "aeea");
+
+        for (Reclamation reclamation : filteredReclamations) {
+            System.out.println(reclamation); // Assuming you have overridden the toString method in Reclamation class
+        }
+
+
+       /* Reclamation r1 = new Reclamation(5 ,
+                "gggg", "aaa", Reclamation.Status.pending,2
         );*/
         // R.add(r1);
-        // R.update(r1);
+       //R.update(r1);
         //R.readAll().forEach(System.out::println);
+        //R.delete(6);
 
-        //dynamic delete
-         /* int reclamationIdToDelete =5 ;
-        R.delete(reclamationIdToDelete);
-        System.out.println("Reclamation with ID " + reclamationIdToDelete + " deleted successfully.");
-        */
 
-        /*
+
+
         // ID of the Reclamation you want to retrieve
-        int eventIdToRetrieve = 1; // Change this to the desired ID
+       /* int eventIdToRetrieve = 5; // Change this to the desired ID
 
         // Retrieve the Reclamation by ID and print it
         Reclamation retrievedReclamation = R.readById(eventIdToRetrieve);
@@ -86,8 +89,8 @@ p1.setDescription("ok");
         } else {
             System.out.println("No Reclamation found with ID: " + eventIdToRetrieve);
         }
-
 */
+
 
 
 
@@ -186,16 +189,16 @@ p1.setDescription("ok");
         //PS.update(p);
         //System.out.println("Planning mis à jour avec succès !");
         //PS.readAll().forEach(System.out::println);
-        CoursService cc = new CoursService();
+        //CoursService cc = new CoursService();
         //cours c = new cours(
         //        1,"pilate", TypeCours.En_Ligne ,3
         //);
         //cc.add(c);
         //cc.delete(c);
-        String A;
+       /* String A;
         cc.readAll().forEach(System.out::println);
         A= String.valueOf(cc.readById(1));
-        System.out.println(A);
+        System.out.println(A);*/
 
 
 
