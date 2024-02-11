@@ -3,7 +3,10 @@ package example;
 
 import gestion_evenement.entities.Evenement;
 import gestion_evenement.service.EvenementService;
+import gestion_planing.entities.TypeCours;
+import gestion_planing.entities.cours;
 import gestion_planing.entities.planning;
+import gestion_planing.service.CoursService;
 import gestion_planing.service.PlanningService;
 import gestion_user.entities.Coach;
 import gestion_user.entities.Sexe;
@@ -183,6 +186,17 @@ p1.setDescription("ok");
         //PS.update(p);
         //System.out.println("Planning mis à jour avec succès !");
         //PS.readAll().forEach(System.out::println);
+        CoursService cc = new CoursService();
+        //cours c = new cours(
+        //        1,"pilate", TypeCours.En_Ligne ,3
+        //);
+        //cc.add(c);
+        //cc.delete(c);
+        String A;
+        cc.readAll().forEach(System.out::println);
+        A= String.valueOf(cc.readById(1));
+        System.out.println(A);
+
 
 
     }}

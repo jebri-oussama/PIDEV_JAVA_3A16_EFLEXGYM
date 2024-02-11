@@ -5,6 +5,7 @@ import gestion_evenement.entities.Evenement;
 import gestion_finance.entities.Abonnement;
 import gestion_finance.entities.Etat;
 import gestion_finance.entities.Type;
+import gestion_planing.entities.TypeCours;
 import gestion_planing.entities.cours;
 import utils.DataSource;
 
@@ -64,45 +65,38 @@ public class CoursService implements IntService<cours> {
         String query = "SELECT * FROM cours";
         List<cours> list = new ArrayList<>();
         try {
-            pst = conn.prepareStatement(query);
-            ResultSet rs = pst.executeQuery();
+            ste = conn.createStatement();
+            ResultSet rs = ste.executeQuery(query);
             while (rs.next()) {
-                int id = rs.getInt("id");
-                String nom = rs.getString("nom");
-                String typeString = rs.getString("type"); // Assuming type is stored as a string in the database
-                Type type = Type.valueOf(typeString); // Assuming TypeEnum is the enum type corresponding to your 'type' column
-                int duree = rs.getInt("duree");
-
-                cours cours = new cours(id, nom, type, duree);
-                list.add(cours);
+                TypeCours type = TypeCours.valueOf(rs.getString(3));
+                list.add(new cours(rs.getInt(1), rs.getString(2), type, rs.getInt(4)));
             }
-        } catch (SQLException e) {
+        }catch(SQLException e){
             throw new RuntimeException(e);
+
+
         }
+
+
         return list;
     }
 
-    @Override
     public cours readById(int id) {
         String requete = "SELECT * FROM cours WHERE id = ?";
         try{
             pst = conn.prepareStatement(requete);
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                String nom = rs.getString("nom");
-                String typeString = rs.getString("type"); // Assuming type is stored as a string in the database
-                Type type = Type.valueOf(typeString); // Assuming TypeEnum is the enum type corresponding to your 'type' column
-                int duree = rs.getInt("duree");
-
-                return new cours(id, nom, type, duree);
-            } else {
-                return null; // Course with the given ID not found//
-                 }
+            if (rs.next()){
+                TypeCours type = TypeCours.valueOf(rs.getString(3));
+                return new cours(rs.getInt(rs.getInt(1)), rs.getString(2), type, rs.getInt(4));
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return null;
     }
+
 
 
 }
