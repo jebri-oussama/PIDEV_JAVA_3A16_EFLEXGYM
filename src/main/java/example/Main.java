@@ -32,15 +32,15 @@ public class Main {
         // ps.add(p1);
 //ps.add(p2);
 
-//ps.delete(2);
+//ps.delete(4);
 
-        //   ps.readAll().forEach(System.out::println);
+          // ps.readAll().forEach(System.out::println);
         //ps.update(7,p1);
-/*p1.setNom("llg");
-p1.setDescription("ok");
+p1.setNom("yassine");
+p1.setDescription("lyas");
         ps.update(3,p1);
-*/
-        ps.readById(5);
+
+       // ps.readById(5);
     }
 
 
