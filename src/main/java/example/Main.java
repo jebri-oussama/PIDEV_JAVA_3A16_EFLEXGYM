@@ -3,6 +3,7 @@ package example;
 
 import gestion_evenement.entities.Evenement;
 import gestion_evenement.service.EvenementService;
+import gestion_planing.entities.planning;
 import gestion_planing.service.PlanningService;
 import gestion_user.entities.Coach;
 import gestion_user.entities.Sexe;
@@ -171,16 +172,17 @@ p1.setDescription("ok");
         System.out.println("Planning supprimé avec succès !");*/
 
         // Créer un objet planning pour tester l'update
-    /*    PlanningService PS = new PlanningService();
+        /*PlanningService PS = new PlanningService();
         planning p = new planning(
-                1, "s2" ,
+                1, "s2" ,3,
                 Date.valueOf("2024-02-10"),
                 Time.valueOf("14:00:00") ,
                1,
                 1
         );
-        PS.update(p);
-        System.out.println("Planning mis à jour avec succès !");*/
+        //PS.update(p);
+        //System.out.println("Planning mis à jour avec succès !");
+        //PS.readAll().forEach(System.out::println);
 
 
     }}
