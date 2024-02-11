@@ -1,8 +1,8 @@
-package gestion_evenement.service;
+package gestion_communaute.service;
 
 import java.util.List;
 
-public interface IService<E> {
+public interface IServiceE<E> {
 
     void add(E t);
 

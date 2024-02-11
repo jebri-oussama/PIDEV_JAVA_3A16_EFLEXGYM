@@ -1,6 +1,6 @@
-package gestion_reclamation.service;
+package gestion_communaute.service;
 
-import gestion_reclamation.entities.Reclamation;
+import gestion_communaute.entities.Reclamation;
 
 import java.util.List;
 

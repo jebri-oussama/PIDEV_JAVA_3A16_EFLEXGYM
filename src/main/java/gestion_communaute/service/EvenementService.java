@@ -1,6 +1,6 @@
-package gestion_evenement.service;
+package gestion_communaute.service;
 
-import gestion_evenement.entities.Evenement;
+import gestion_communaute.entities.Evenement;
 import utils.DataSource;
 
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EvenementService implements IService<Evenement> {
+public class EvenementService implements IServiceE<Evenement> {
 
     private Connection conn;
     private PreparedStatement pst;

@@ -1,4 +1,4 @@
-package gestion_reclamation.entities;
+package gestion_communaute.entities;
 
 public class Reclamation {
 

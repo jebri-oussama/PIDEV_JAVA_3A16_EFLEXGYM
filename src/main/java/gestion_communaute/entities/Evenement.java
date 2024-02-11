@@ -1,4 +1,4 @@
-package gestion_evenement.entities;
+package gestion_communaute.entities;
 
 import java.sql.Timestamp;
 import java.util.Date;
