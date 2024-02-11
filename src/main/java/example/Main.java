@@ -51,12 +51,13 @@ public class Main {
         // Créer un objet planning pour tester l'update
         PlanningService PS = new PlanningService();
         planning p = new planning(
-                2, "s2" ,
+                1, "s2" ,
                 Date.valueOf("2024-02-10"),
                 Time.valueOf("14:00:00") ,
-               1,2
+               1,
+                1
         );
-        PS.add(p);
+        PS.update(p);
         System.out.println("Planning mis à jour avec succès !");
 
 

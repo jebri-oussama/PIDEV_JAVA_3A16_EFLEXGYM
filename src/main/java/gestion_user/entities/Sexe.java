@@ -1,6 +1,6 @@
 package gestion_user.entities;
 
-public enum sexe {
+public enum Sexe {
     homme,
     femme,
 }

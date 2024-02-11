@@ -12,7 +12,7 @@ public class Adherent extends User{
     private String mot_de_passe;
     private String email;
     private Date date_de_naissance;
-    private sexe sexe;
+    private Sexe sexe;
 
     public Adherent(String nom, String prenom, String mot_de_passe, String email, Date date_de_naissance) {
         this.nom = nom;
@@ -70,11 +70,11 @@ public class Adherent extends User{
         this.date_de_naissance = date_de_naissance;
     }
 
-    public gestion_user.entities.sexe getSexe() {
+    public Sexe getSexe() {
         return sexe;
     }
 
-    public void setSexe(gestion_user.entities.sexe sexe) {
+    public void setSexe(Sexe sexe) {
         this.sexe = sexe;
     }
 
