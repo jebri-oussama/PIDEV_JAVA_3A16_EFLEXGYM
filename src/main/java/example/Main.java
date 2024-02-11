@@ -1,6 +1,9 @@
 package example;
 
 
+import gestion_produit.entities.categorie;
+import gestion_produit.entities.type;
+import gestion_produit.service.categorieService;
 import gestion_evenement.entities.Evenement;
 import gestion_evenement.service.EvenementService;
 import gestion_planing.service.PlanningService;
@@ -15,6 +18,8 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
+import static gestion_produit.entities.type.alimentaire;
+import static gestion_produit.entities.type.vestimentaire;
 import static gestion_user.entities.Sexe.homme;
 import gestion_produit.entities.produit;
 import gestion_produit.service.produitService;
@@ -31,27 +36,29 @@ public class Main {
 /*
         DataSource ds1 = DataSource.getInstance();
         System.out.println(ds1);
-        produitService ps= new produitService();
-        produit p1 = new produit(1,
-                "oussema" , "prot.png",
-                53.5F,
-                5 ,
-                "twali bdan fi nharin",
-                1,1
+        categorieService ps= new categorieService();
+        categorie c1 = new categorie(2,
+                vestimentaire , "behy",
+                5
+
         );*/
 
 
 
-        // ps.add(p1);
+
+
+
+
+      // ps.add(c1);
 //ps.add(p2);
 
 //ps.delete(2);
 
-        //   ps.readAll().forEach(System.out::println);
+        //ps.readAll().forEach(System.out::println);
         //ps.update(7,p1);
-/*p1.setNom("llg");
-p1.setDescription("ok");
-        ps.update(3,p1);
+        /*
+c1.setType(alimentaire);
+        ps.update(2);
 */
      //   ps.readById(5);
 
