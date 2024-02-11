@@ -1,6 +1,8 @@
 package example;
 
 import gestion_planing.service.PlanningService;
+import gestion_produit.entities.produit;
+import gestion_produit.service.produitService;
 import gestion_user.entities.Coach;
 import gestion_user.entities.Sexe;
 import gestion_user.service.CoachService;
@@ -13,15 +15,48 @@ import static gestion_user.entities.Sexe.male;
 public class Main {
     public static void main(String[] args) {
 
+
         DataSource ds1 = DataSource.getInstance();
         System.out.println(ds1);
+        produitService ps= new produitService();
+        produit p1 = new produit(1,
+                "oussema" , "prot.png",
+                53.5F,
+                5 ,
+                "twali bdan fi nharin",
+                1,1
+        );
+
+
+
+        // ps.add(p1);
+//ps.add(p2);
+
+//ps.delete(2);
+
+        //   ps.readAll().forEach(System.out::println);
+        //ps.update(7,p1);
+/*p1.setNom("llg");
+p1.setDescription("ok");
+        ps.update(3,p1);
+*/
+        ps.readById(5);
+    }
+
+
+
+
+
+
+       // DataSource ds1 = DataSource.getInstance();
+       // System.out.println(ds1);
 
         CoachService cs = new CoachService();
        //Coach coach1 = new Coach("mamoud","mamoud","1234","mahmoud@123", Date.valueOf("2024-02-10"), male,3000,1);
         //Coach coach2 = new Coach(5,"ali","ali","1234","ali@123",  Date.valueOf("2024-02-09"), male,3000,1);
        // System.out.println(cs.readAll());
-        cs.delete(3);
-        System.out.println(cs.readAll());
+      //  cs.delete(3);
+        //System.out.println(cs.readAll());
        // cs.add(coach1);
         // cs.add(coach2);
         //cs.delete(5);
@@ -76,4 +111,3 @@ public class Main {
 
 
     }
-}
