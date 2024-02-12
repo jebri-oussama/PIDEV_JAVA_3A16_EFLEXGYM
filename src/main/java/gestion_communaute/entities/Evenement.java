@@ -1,4 +1,4 @@
-package gestion_evenement.entities;
+package gestion_communaute.entities;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -42,7 +42,7 @@ public class Evenement {
     public Date getDate_fin() {
         return date_fin;
     }
-
+   //
     public void setDate_fin(Timestamp date_fin) {
         this.date_fin = date_fin;
     }

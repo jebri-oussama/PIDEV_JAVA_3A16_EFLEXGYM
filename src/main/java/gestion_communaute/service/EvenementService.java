@@ -1,6 +1,6 @@
-package gestion_evenement.service;
+package gestion_communaute.service;
 
-import gestion_evenement.entities.Evenement;
+import gestion_communaute.entities.Evenement;
 import utils.DataSource;
 
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EvenementService implements IService<Evenement> {
+public class EvenementService implements IServiceE<Evenement> {
 
     private Connection conn;
     private PreparedStatement pst;
@@ -35,16 +35,17 @@ public class EvenementService implements IService<Evenement> {
     }
 
     @Override
-    public void delete(Evenement evenement) {
+    public void delete(int id) {
         String query = "DELETE FROM Evenement WHERE id = ?";
         try {
             pst = conn.prepareStatement(query);
-            pst.setInt(1, evenement.getId());
+            pst.setInt(1, id);
             pst.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+//
 
     @Override
     public void update(Evenement evenement) {
