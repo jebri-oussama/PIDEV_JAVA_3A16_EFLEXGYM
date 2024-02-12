@@ -3,7 +3,8 @@ package gestion_finance;
 import gestion_finance.entities.Abonnement;
 import gestion_finance.entities.BilanFinancier;
 import gestion_finance.service.AbonnementService;
-import gestion_finance.service.BilanFinancierService;
+import gestion_planing.service.PlanningService;
+
 import utils.DataSource;
 
 import java.sql.Date;
@@ -12,7 +13,8 @@ import static gestion_finance.entities.Etat.actif;
 import static gestion_finance.entities.Type.annuel;
 import static gestion_finance.entities.Type.mensuel;
 
-public class mainF {
+
+public class MainF {
     public static void main(String[] args) {
 
         DataSource ds1 = DataSource.getInstance();
@@ -51,8 +53,8 @@ public class mainF {
 
         /*as.add(abonnement1);
         as.add(abonnement2);*/
-       //as.delete(abonnement1);
-        as.readAll().forEach(System.out::println);
+        /*as.delete(abonnement1);
+        as.readAll().forEach(System.out::println);*/
         //System.out.println("L'abonnement a été ajouté avec succès !");
 
 
@@ -86,62 +88,16 @@ public class mainF {
 
         as.update(abonnement5);
         as.delete(abonnement5);*/
-        BilanFinancierService bfs = new BilanFinancierService();
 
-        BilanFinancier bf = new BilanFinancier(1, 0.0, 0.0);
+        BilanFinancier bf = new BilanFinancier(1, 0.0 , 0.0);
 
-       /* bf.setRevenus_abonnements(bf.recupererRevenuAbonnements());
+        bf.setRevenus_abonnements(bf.recupererRevenuAbonnements());
         System.out.println("Prix total des abonnements : " +bf.getRevenus_abonnements());
 
-        bf.setRevenus_produits(bf.recupererRevenusProduits());
-        System.out.println("Revenu des produits: " +bf.getRevenus_produits());
-
-        bf.setSalaires_coachs(bf.recupererSalairesCoachs());
-        System.out.println("salaires des coachs : " +bf.getSalaires_coachs());
-
-        bf.setProfit(bf.calculerProfit());
-        System.out.println("profit : " +bf.getProfit());*/
-
-      /*  bf.setDepenses(800);
-        bf.setPrix_location(100);
-        bf.setSalaires_coachs(bf.recupererSalairesCoachs());
-        bf.setRevenus_produits(bf.recupererRevenusProduits());
-        bf.setRevenus_abonnements(bf.recupererRevenuAbonnements());
-        bf.setProfit(bf.calculerProfit());
-
-        bfs.update(bf);*/
-       /* bfs.readAll().forEach(System.out::println);
-        BilanFinancier bf1 = new BilanFinancier(3,518.2,659.2,561.0,656.0,315.0,555.2);
-
-        System.out.println(bfs.readById(1));
-        bfs.delete(bf1);
-
-        bfs.readAll().forEach(System.out::println);*/
-
-     /*   BilanFinancier bf3 = new BilanFinancier(3, 0.0,0.0);
-        //  bfs.add(bf3);
-
-        bf3.setRevenus_produits(bf3.recupererRevenusProduits());
-        bf3.setDepenses(100);
-        bf3.setRevenus_abonnements(bf3.recupererRevenuAbonnements());
-        bf3.setSalaires_coachs(bf3.recupererSalairesCoachs());
-        bf3.setPrix_location(600);
-        bf3.setProfit(bf3.calculerProfit());
-        bfs.update(bf3);*/
 
 
 
-
-
-
-
-
-
-        //PlanningService planningService = new PlanningService();
-
-        // BilanFinancier bf1 = new BilanFinancier(3,518.2,659.2,561.0,656.0,315.0,555.2);
-
-        //  bfs.add(bf1);*/
+        PlanningService planningService = new PlanningService();
 
 
 
