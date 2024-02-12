@@ -46,11 +46,11 @@ public class Main {
 
 
 
-       /* produitService ps= new produitService();
+     /*   categorieService ps= new categorieService();
 
 //p1
-produit p1=ps.readById(3);
-*/
+categorie p1=ps.readById(1);*/
+
 
       // ps.add(c1);
 //ps.add(p2);
