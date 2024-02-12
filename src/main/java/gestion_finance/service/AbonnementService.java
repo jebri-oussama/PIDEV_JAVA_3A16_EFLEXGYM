@@ -93,7 +93,6 @@ public class AbonnementService implements IService<Abonnement> {
 
             }
 
-
         return list;
     }
 

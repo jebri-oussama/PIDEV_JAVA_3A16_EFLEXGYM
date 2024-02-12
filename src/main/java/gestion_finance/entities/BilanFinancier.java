@@ -10,24 +10,32 @@ import java.sql.SQLException;
 public class BilanFinancier {
     private Connection conn;
     private int id;
-    private double revenus_abonnements;
-    private double revenus_produits;
     private double salaires_coachs;
     private double prix_location;
-    private double depenses;
     private double profit;
+    private double revenus_abonnements;
+    private double revenus_produits;
+    private double depenses;
+
     private PreparedStatement pst;
 
     public BilanFinancier( int id, double prix_location, double depenses) {
         this.conn =   DataSource.getInstance().getCnx();
         this.id=id;
-        this.salaires_coachs = recupererSalairesCoachs();
         this.prix_location = prix_location;
-        this.profit = calculerProfit();
-        this.revenus_abonnements = recupererPrixAbonnements();
-        this.revenus_produits = recupererPrixProduits();
         this.depenses=depenses;
 
+    }
+
+    public BilanFinancier(int id, double revenus_abonnements, double revenus_produits, double salaires_coachs, double prix_location, double depenses, double profit) {
+        this.conn =   DataSource.getInstance().getCnx();
+        this.id = id;
+        this.revenus_abonnements = revenus_abonnements;
+        this.revenus_produits = revenus_produits;
+        this.salaires_coachs = salaires_coachs;
+        this.prix_location = prix_location;
+        this.depenses = depenses;
+        this.profit = profit;
     }
 
     public int getId() {
@@ -38,15 +46,31 @@ public class BilanFinancier {
         this.id = id;
     }
 
-    private double calculerProfit() {
+    public double calculerProfit() {
         return revenus_abonnements + revenus_produits -salaires_coachs - depenses - prix_location;
     }
 
-    private double recupererSalairesCoachs() {
-        return 0;
+   public double recupererSalairesCoachs() {
+        double salairesCoachs = 0;
+        String requete = "SELECT SUM(salaire) AS salaires_coachs FROM coach WHERE id_bilan_financier = ?";
+        try {
+            pst = conn.prepareStatement(requete);
+            pst.setInt(1, getId());
+
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                salairesCoachs += rs.getDouble("salaires_coachs");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return salairesCoachs;
     }
 
-    private double recupererPrixProduits() {
+
+
+    public double recupererRevenusProduits() {
         double prixTotalProduits = 0;
         String requete = "SELECT SUM(quantite * prix) AS revenus_produits FROM Produit WHERE id_bilan_financier = ?";
         try {
@@ -66,7 +90,7 @@ public class BilanFinancier {
 
 
 
-    public double recupererPrixAbonnements() {
+    public double recupererRevenuAbonnements() {
         double prixTotalAbonnements = 0;
 
         String requete =  "SELECT SUM(prix) AS revenus_abonnements FROM Abonnement WHERE id_bilan_financier = ?";
@@ -150,15 +174,13 @@ public class BilanFinancier {
     @Override
     public String toString() {
         return "BilanFinancier{" +
-                "conn=" + conn +
-                ", id=" + id +
-                ", revenus_abonnements=" + revenus_abonnements +
-                ", revenus_produits=" + revenus_produits +
+                "id=" + id +
                 ", salaires_coachs=" + salaires_coachs +
                 ", prix_location=" + prix_location +
-                ", depenses=" + depenses +
                 ", profit=" + profit +
-                ", pst=" + pst +
+                ", revenus_abonnements=" + revenus_abonnements +
+                ", revenus_produits=" + revenus_produits +
+                ", depenses=" + depenses +
                 '}';
     }
 }
