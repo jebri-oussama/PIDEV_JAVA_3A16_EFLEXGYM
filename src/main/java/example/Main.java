@@ -48,7 +48,7 @@ public class Main {
 
        /* produitService ps= new produitService();
 
-
+//p1
 produit p1=ps.readById(3);
 */
 
