@@ -46,8 +46,11 @@ public class Main {
 
 
 
+       /* produitService ps= new produitService();
 
 
+produit p1=ps.readById(3);
+*/
 
       // ps.add(c1);
 //ps.add(p2);
