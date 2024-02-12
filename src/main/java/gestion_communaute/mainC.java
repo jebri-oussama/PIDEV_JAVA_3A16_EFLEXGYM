@@ -13,22 +13,23 @@ public class mainC {
 
     public static void main(String[] args) {
 
+
         /*DataSource ds1 = DataSource.getInstance();
-        System.out.println(ds1);/*
-   // ReclamationService R = new ReclamationService();
-       /* List<Reclamation> filteredReclamations = R.getReclamationsByStatusAndType(Reclamation.Status.pending, "aeea");
+        System.out.println(ds1);*/
+   ReclamationService R = new ReclamationService();
+       /* List<Reclamation> filteredReclamations = R.getReclamationsByStatusAndType(Reclamation.Status.pending, "gggg");
 
         for (Reclamation reclamation : filteredReclamations) {
             System.out.println(reclamation); // Assuming you have overridden the toString method in Reclamation class
-        }
+        }*/
 
-*/
 
-       /*Reclamation r1 = new Reclamation(7 ,
-                "Z", "aaa", Reclamation.Status.pending,2
-        );*/
+
+       Reclamation r1 = new Reclamation(8 ,
+                "kkk", "ppppp", Reclamation.Status.resolved,2
+        );
      //R.add(r1);
-    //R.update(r1);
+    R.update(r1);
     //R.readAll().forEach(System.out::println);
     //R.delete(7);
 
